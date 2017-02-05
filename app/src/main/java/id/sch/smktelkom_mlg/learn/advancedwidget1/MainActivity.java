@@ -36,3 +36,28 @@ public class MainActivity extends AppCompatActivity
                 android.R.layout.simple_spinner_item, arJumlah);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spJumlah.setAdapter(adapter);
+
+        llAnak = (LinearLayout) findViewById(R.id.linearLayoutAnak);
+        tvHasil = (TextView) findViewById(R.id.textViewHasil);
+
+        findViewById(R.id.buttonProses).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                doProses();
+            }
+        });
+
+        spJumlah.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                addEditText((int)spJumlah.getSelectedItem());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
